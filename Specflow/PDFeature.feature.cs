@@ -211,8 +211,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Edit skills with valid data")]
-        [NUnit.Framework.TestCaseAttribute("Driving", "Expert", null)]
-        [NUnit.Framework.TestCaseAttribute("Cooking", "Beginner", null)]
+        [NUnit.Framework.TestCaseAttribute("Testing", "Expert", null)]
         public void EditSkillsWithValidData(string skill, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -248,7 +247,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Edit certification with valid data")]
-        [NUnit.Framework.TestCaseAttribute("Diploma", "Asmi", "2022", null)]
+        [NUnit.Framework.TestCaseAttribute("Masters", "UQ", "2022", null)]
         public void EditCertificationWithValidData(string certificate, string from, string year, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

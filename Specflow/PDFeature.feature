@@ -46,8 +46,8 @@ Scenario: Add language details with valid data
 
 	Examples: 
 	| skill   | level    |
-	| Driving | Expert   |
-	| Cooking | Beginner |
+	| Testing | Expert   |
+	
 
 
 
@@ -60,7 +60,7 @@ Scenario: Add language details with valid data
 
 	Examples: 
 	| certificate | from | year |
-	| Diploma     | Asmi | 2022 |
+	| Masters    | UQ | 2022 |
 	
 
 	Scenario Outline: Delete language with valid data

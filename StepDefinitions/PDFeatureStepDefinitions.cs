@@ -16,6 +16,7 @@ namespace MarsQAProject
         MarsLoginPage LoginObj = new MarsLoginPage();
         MProfilelanguagePage mProfilelanguagePageObj = new MProfilelanguagePage();
         MProfileSkillPage MProfileSkillPage = new MProfileSkillPage();
+        MProfileCertPage MProfileCertPageObj = new MProfileCertPage();
         IWebDriver mydriver = new ChromeDriver();
 
         [Given(@"I login in the Blockchain-based skill exchange platform portal successfully")]
@@ -73,13 +74,20 @@ namespace MarsQAProject
         [When(@"I add my certification details")]
         public void WhenIAddMyCertificationDetails()
         {
-            throw new PendingStepException();
+            MProfileCertPageObj.AddNewCert(mydriver);
+
         }
 
         [Then(@"the certification details added successfully")]
         public void ThenTheCertificationDetailsAddedSuccessfully()
         {
-            throw new PendingStepException();
+            string Cert = MProfileCertPageObj.GetCert(mydriver);
+            string From = MProfileCertPageObj.GetCertFrom(mydriver);
+            string Year = MProfileCertPageObj.GetCertYear(mydriver);
+
+            Assert.That(Cert == "Diploma", "Actual Certificate and expected Certificate do not match");
+            Assert.That(From == "QUT", " Actual Cerificate From and expected Cerificate From  do not match");
+            Assert.That(Year== "2020", " Actual Cerificate Year and expected Cerificate Year  do not match");
         }
 
         [When(@"I edit '([^']*)','([^']*)' on an existing languages tab")]
@@ -95,9 +103,9 @@ namespace MarsQAProject
         }
 
         [When(@"I edit '([^']*)','([^']*)' on an existing skills tab")]
-        public void WhenIEditOnAnExistingSkillsTab(string driving, string expert)
+        public void WhenIEditOnAnExistingSkillsTab(string p1, string p2)
         {
-            throw new PendingStepException();
+            MProfileSkillPage.EditSkill(mydriver, p1, p2);
         }
 
         [Then(@"the skills tab should have the updated '([^']*)','([^']*)'")]
@@ -107,9 +115,9 @@ namespace MarsQAProject
         }
 
         [When(@"I edit '([^']*)','([^']*)','([^']*)' on an existing certification tab")]
-        public void WhenIEditOnAnExistingCertificationTab(string diploma, string asmi, string p2)
+        public void WhenIEditOnAnExistingCertificationTab(string p0, string p1, string p2)
         {
-            throw new PendingStepException();
+            MProfileCertPageObj.EditCert(mydriver, p0, p1, p2);
         }
 
         [Then(@"the certification tab should have the updated '([^']*)','([^']*)','([^']*)'")]

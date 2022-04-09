@@ -63,13 +63,47 @@ namespace MarsQAProject.Pages
 
         }
 
-        public void EditSkill()
+        public void EditSkill(IWebDriver driver, string skill, string level)
         {
-            
-            
+
+            //Click Skills tab
+            Wait.WaitToBeClickable(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[1]/a[2]", 2);
+            IWebElement SkillsTab = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[1]/a[2]"));
+            SkillsTab.Click();
             //Click Edit button
+            //*[@id="account-profile-section"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[3]/span[1]              
+            Wait.WaitToBeClickable(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[3]/span[1]", 10);
+
+            IWebElement EditButton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[3]/span[1]"));
+            EditButton.Click();
+
             //Edit Level
-            //Click Update button
+            IWebElement skilltext = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td/div/div[1]/input"));
+            skilltext.Clear();
+            skilltext.SendKeys(skill);
+
+            //check if level example data is NOT empty or not null
+            if ((level != "") && (level != null))
+            {
+                // change level drop down
+                IWebElement skilllevel = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td/div/div[2]/select"));
+                skilllevel.Click();
+
+                if (level == "Expert")
+                {
+                    Wait.WaitToBeClickable(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td/div/div[2]/select/option[4]", 2);
+                    IWebElement levels = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td/div/div[2]/select/option[4]"));
+                    levels.Click();
+                }
+            }
+
+            // Click the update button
+
+            IWebElement Updatebutton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td/div/span/input[1]"));
+            Updatebutton.Click();
+
+
+            
 
 
         }
