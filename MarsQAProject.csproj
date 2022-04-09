@@ -6,6 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Screenshots\DeletedLanguage_screenshot.JPG\**" />
+    <EmbeddedResource Remove="Screenshots\DeletedLanguage_screenshot.JPG\**" />
+    <None Remove="Screenshots\DeletedLanguage_screenshot.JPG\**" />
+    <SpecFlowFeatureFiles Remove="Screenshots\DeletedLanguage_screenshot.JPG\**" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Screenshots\DeletedLanguage_screenshot.JPG\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
     <PackageReference Include="NUnit" Version="3.13.3" />
