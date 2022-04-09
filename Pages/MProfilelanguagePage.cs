@@ -29,7 +29,7 @@ namespace MarsQAProject.Pages
             Txtlanguage.SendKeys("English");
 
 
-            // Chose language level
+            // Choose language level
 
             Wait.WaitToBeClickable(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[2]/select/option[1]", 2);
             IWebElement Languagelevel = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[2]/select/option[1]"));
@@ -110,8 +110,27 @@ namespace MarsQAProject.Pages
         public void DeleteLanguge(IWebDriver driver)
 
         {
-            // Click the cross button
+            // Click the cross button                                  //*[@id="account-profile-section"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[2]
+            Wait.WaitToBeVisible(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[2]", 5);
+            IWebElement findEditedLevel = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[2]"));
 
+            if (findEditedLevel.Text == "Fluent")
+            {
+                // Click on delete button
+                IWebElement deleteButton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[2]"));
+                deleteButton.Click();
+                Thread.Sleep(1000);
+
+
+            }
+            else
+            {
+                Assert.Fail("Level to be deleted hasn't been found. Level not deleted");
+            }
+
+            // Assert that Level has been deleted
+            driver.Navigate().Refresh();
+            Thread.Sleep(1000);
         }
 
         //

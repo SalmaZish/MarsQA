@@ -1,0 +1,42 @@
+<Playlist Version="2.0">
+  <Rule Name="Includes" Match="Any">
+    <Rule Match="All">
+      <Property Name="Solution" />
+      <Rule Match="Any">
+        <Rule Match="All">
+          <Property Name="Project" Value="MarsQAProject" />
+          <Rule Match="Any">
+            <Rule Match="All">
+              <Property Name="Namespace" Value="MarsQAProject.Specflow" />
+              <Rule Match="Any">
+                <Rule Match="All">
+                  <Property Name="Class" Value="PDFeatureFeature" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="MarsQAProject.Specflow.PDFeatureFeature.AddLanguageDetailsWithValidData" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="AddLanguageDetailsWithValidData" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="MarsQAProject.Specflow.PDFeatureFeature.EditLanguageDetailsWithValidData" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="EditLanguageDetailsWithValidData(&quot;English&quot;,&quot;Fluent&quot;,null)" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="MarsQAProject.Specflow.PDFeatureFeature.DeleteLanguageWithValidData" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="DeleteLanguageWithValidData(&quot;English&quot;,&quot;Basic&quot;,null)" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+              </Rule>
+            </Rule>
+          </Rule>
+        </Rule>
+      </Rule>
+    </Rule>
+  </Rule>
+</Playlist>

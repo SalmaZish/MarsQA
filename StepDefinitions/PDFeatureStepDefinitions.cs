@@ -15,6 +15,7 @@ namespace MarsQAProject
 
         MarsLoginPage LoginObj = new MarsLoginPage();
         MProfilelanguagePage mProfilelanguagePageObj = new MProfilelanguagePage();
+        MProfileSkillPage MProfileSkillPage = new MProfileSkillPage();
         IWebDriver mydriver = new ChromeDriver();
 
         [Given(@"I login in the Blockchain-based skill exchange platform portal successfully")]
@@ -56,13 +57,17 @@ namespace MarsQAProject
         [When(@"I add my skill details")]
         public void WhenIAddMySkillDetails()
         {
-            throw new PendingStepException();
+            MProfileSkillPage.AddNewSkill(mydriver);
         }
 
         [Then(@"the skill details added successfully")]
         public void ThenTheSkillDetailsAddedSuccessfully()
         {
-            throw new PendingStepException();
+            string skill = MProfileSkillPage.GetSkill(mydriver);
+            string level = MProfileSkillPage.GetLevel(mydriver);
+
+            Assert.That(skill == "Programming", "Actual skilldetail and expected skilldetail do not match");
+            Assert.That(level == "Beginner", " Actual level details and expected level deatails do not match");
         }
 
         [When(@"I add my certification details")]
@@ -116,7 +121,7 @@ namespace MarsQAProject
         [When(@"I delete'([^']*)','([^']*)' on an existing languages tab")]
         public void WhenIDeleteOnAnExistingLanguagesTab(string language, string level)
         {
-            throw new PendingStepException();
+            mProfilelanguagePageObj.DeleteLanguge(mydriver);
         }
 
         [Then(@"the languages tab should delete '([^']*)','([^']*)'")]
